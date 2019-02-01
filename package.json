@@ -1,0 +1,28 @@
+{
+  "name": "@blockmason/link-token",
+  "version": "1.0.0",
+  "description": "Source code and supporting files and documentation for the BLINK token contract.",
+  "repository": "https://github.com/blockmason/link-token",
+  "author": {
+    "email": "devin@blockmason.io",
+    "name": "Devin Canterberry"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "truffle compile",
+    "lint": "eslint test",
+    "start": "ganache-cli --accounts 2 --port 8545 --host 127.0.0.1",
+    "test": "truffle test"
+  },
+  "devDependencies": {
+    "babel-eslint": "10.0.1",
+    "bn.js": "4.11.8",
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "eslint": "5.13.0",
+    "eslint-plugin-ante": "1.0.2",
+    "ganache-cli": "6.3.0",
+    "mocha": "5.2.0",
+    "truffle": "5.0.3"
+  }
+}
