@@ -102,7 +102,7 @@ contract BLINKToken {
     require(_to != address(this));
     require(balances[msg.sender] - _value <= balances[msg.sender]);
     require(balances[_to] <= balances[_to] + _value);
-    require(_value <= transferableTokens(msg.sender, 0));
+    require(_value <= transferableTokens(msg.sender));
 
     balances[msg.sender] = balances[msg.sender] - _value;
     balances[_to] = balances[_to] + _value;
@@ -118,7 +118,7 @@ contract BLINKToken {
     require(_to != _from);
     require(_to != address(0));
     require(_to != address(this));
-    require(_value <= transferableTokens(_from, 0));
+    require(_value <= transferableTokens(_from));
     require(allowed[_from][msg.sender] - _value <= allowed[_from][msg.sender]);
     require(balances[_from] - _value <= balances[_from]);
     require(balances[_to] <= balances[_to] + _value);
@@ -144,7 +144,7 @@ contract BLINKToken {
     emit OwnershipTransferred(previousOwner, _newOwner);
   }
 
-  function transferableTokens(address holder, uint64) public view returns (uint256) {
+  function transferableTokens(address holder) public view returns (uint256) {
     if (mintingFinished) {
       return balanceOf(holder);
     }
