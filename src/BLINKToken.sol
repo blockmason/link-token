@@ -3,11 +3,11 @@ pragma solidity ^0.5.2;
 contract BLINKToken {
   mapping (address => mapping (address => uint256)) allowed;
   mapping(address => uint256) balances;
-  uint256 public decimals = 18;
+  uint256 public constant decimals = 18;
   bool public mintingFinished = false;
-  string public name = "BLOCKMASON LINK TOKEN";
+  string public constant name = "BLOCKMASON LINK TOKEN";
   address public owner;
-  string public symbol = "BLINK";
+  string public constant symbol = "BLINK";
   uint256 public totalSupply;
 
   event Approval(address indexed tokenholder, address indexed spender, uint256 value);
