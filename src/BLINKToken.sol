@@ -70,7 +70,7 @@ contract BLINKToken {
   function increaseApproval(address _spender, uint _addedValue) public returns (bool success) {
     require(_spender != address(0));
     require(_spender != msg.sender);
-    require(allowed[msg.sender][_spender] < allowed[msg.sender][_spender] + _addedValue);
+    require(allowed[msg.sender][_spender] <= allowed[msg.sender][_spender] + _addedValue);
 
     allowed[msg.sender][_spender] = allowed[msg.sender][_spender] + _addedValue;
 
@@ -84,8 +84,8 @@ contract BLINKToken {
     require(!mintingFinished);
     require(_to != address(0));
     require(_to != address(this));
-    require(totalSupply < totalSupply + _amount);
-    require(balances[_to] < balances[_to] + _amount);
+    require(totalSupply <= totalSupply + _amount);
+    require(balances[_to] <= balances[_to] + _amount);
 
     totalSupply = totalSupply + _amount;
     balances[_to] = balances[_to] + _amount;
@@ -100,8 +100,8 @@ contract BLINKToken {
     require(_to != msg.sender);
     require(_to != address(0));
     require(_to != address(this));
-    require(balances[msg.sender] - _value < balances[msg.sender]);
-    require(balances[_to] < balances[_to] + _value);
+    require(balances[msg.sender] - _value <= balances[msg.sender]);
+    require(balances[_to] <= balances[_to] + _value);
     require(_value <= transferableTokens(msg.sender, 0));
 
     balances[msg.sender] = balances[msg.sender] - _value;
@@ -119,9 +119,9 @@ contract BLINKToken {
     require(_to != address(0));
     require(_to != address(this));
     require(_value <= transferableTokens(_from, 0));
-    require(allowed[_from][msg.sender] - _value < allowed[_from][msg.sender]);
-    require(balances[_from] - _value < balances[_from]);
-    require(balances[_to] < balances[_to] + _value);
+    require(allowed[_from][msg.sender] - _value <= allowed[_from][msg.sender]);
+    require(balances[_from] - _value <= balances[_from]);
+    require(balances[_to] <= balances[_to] + _value);
 
     allowed[_from][msg.sender] = allowed[_from][msg.sender] - _value;
     balances[_from] = balances[_from] - _value;
