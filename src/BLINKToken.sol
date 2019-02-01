@@ -9,8 +9,8 @@ contract BLINKToken {
   address public owner;
   uint256 public totalSupply;
 
-  mapping (address => mapping (address => uint256)) allowed;
-  mapping (address => uint256) balances;
+  mapping (address => mapping (address => uint256)) private allowed;
+  mapping (address => uint256) private balances;
 
   event Approval(address indexed tokenholder, address indexed spender, uint256 value);
   event Mint(address indexed to, uint256 amount);
