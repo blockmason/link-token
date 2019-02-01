@@ -98,6 +98,7 @@ contract BLINKToken {
 
   function transfer(address _to, uint256 _value) public returns (bool) {
     require(_to != msg.sender);
+    require(_to != address(0));
     require(_to != address(this));
     require(balances[msg.sender] - _value < balances[msg.sender]);
     require(balances[_to] < balances[_to] + _value);
@@ -115,6 +116,7 @@ contract BLINKToken {
     require(_from != address(0));
     require(_from != address(this));
     require(_to != _from);
+    require(_to != address(0));
     require(_to != address(this));
     require(_value <= transferableTokens(_from, 0));
     require(allowed[_from][msg.sender] - _value < allowed[_from][msg.sender]);
