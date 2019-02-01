@@ -22,6 +22,10 @@ contract BLINKToken {
     owner = msg.sender;
   }
 
+  function () external payable {
+    revert();
+  }
+
   function allowance(address _tokenholder, address _spender) public view returns (uint256 remaining) {
     return allowed[_tokenholder][_spender];
   }
