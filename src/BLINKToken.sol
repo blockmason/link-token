@@ -81,6 +81,7 @@ contract BLINKToken {
     require(msg.sender == owner);
     require(!mintingFinished);
     require(_to != address(0));
+    require(_to != address(this));
     require(totalSupply < totalSupply + _amount);
     require(balances[_to] < balances[_to] + _amount);
 
@@ -95,6 +96,7 @@ contract BLINKToken {
 
   function transfer(address _to, uint256 _value) public returns (bool) {
     require(_to != msg.sender);
+    require(_to != address(this));
     require(balances[msg.sender] - _value < balances[msg.sender]);
     require(balances[_to] < balances[_to] + _value);
     require(_value <= transferableTokens(msg.sender, 0));
@@ -109,7 +111,9 @@ contract BLINKToken {
 
   function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {
     require(_from != address(0));
+    require(_from != address(this));
     require(_to != _from);
+    require(_to != address(this));
     require(_value <= transferableTokens(_from, 0));
     require(allowed[_from][msg.sender] - _value < allowed[_from][msg.sender]);
     require(balances[_from] - _value < balances[_from]);
@@ -127,6 +131,7 @@ contract BLINKToken {
   function transferOwnership(address _newOwner) public {
     require(msg.sender == owner);
     require(_newOwner != address(0));
+    require(_newOwner != address(this));
     require(_newOwner != owner);
 
     address previousOwner = owner;
