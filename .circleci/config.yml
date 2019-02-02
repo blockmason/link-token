@@ -86,8 +86,8 @@ jobs:
         command: |
           NODE_ENV=production yarn build
     - store_artifacts:
-        path: lib
+        path: build
     - persist_to_workspace:
         root: /docker
         paths:
-        - project/lib
+        - project/build
