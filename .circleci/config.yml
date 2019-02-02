@@ -28,13 +28,9 @@ jobs:
     <<: *defaults
     steps:
     - checkout
-    - add_ssh_keys:
-        fingerprints:
-        - "1f:25:0a:b2:88:ce:a9:ef:00:bc:df:b4:42:49:84:19"
     - persist_to_workspace:
         root: /docker
         paths:
-        - .ssh
         - project
   install:
     <<: *defaults
