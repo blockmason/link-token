@@ -1,5 +1,7 @@
 # Blockmason Link ERC20 Token (BLINK)
 
+[![CircleCI][4]][5]
+
 This repo contains the source code for the BLINK token contract,
 along with all necessary support files for testing and deployment.
 
@@ -34,3 +36,5 @@ Then, run `yarn test` to perform the test suite.
 [1]: https://nodejs.org/
 [2]: https://yarnpkg.com/
 [3]: https://truffleframework.com/
+[4]: https://circleci.com/gh/blockmason/link-token.svg?style=svg&circle-token=e062b260cd72e3f6009e25109e7f313842a6921c
+[5]: https://circleci.com/gh/blockmason/link-token
