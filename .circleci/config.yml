@@ -65,7 +65,10 @@ jobs:
     - store_test_results:
         path: reports
   test:
-    <<: *defaults
+    working_directory: "/docker/project"
+    docker:
+    - image: blockmason/nodejs:11.8.0
+    - image: blockmason/ganache:6.3.0
     steps:
     - attach_workspace:
         at: /docker
