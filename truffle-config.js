@@ -9,6 +9,14 @@ module.exports = {
       version: '0.5.3'
     }
   },
+  mocha: process.env.CI ? {
+    reporter: 'mocha-junit-reporter',
+    reporterOptions: {
+      mochaFile: process.env.TEST_REPORT_PATH
+    }
+  } : {
+    reporter: 'spec'
+  },
   networks: {
     test: {
       host: '127.0.0.1',

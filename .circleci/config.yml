@@ -76,7 +76,7 @@ jobs:
         name: Testing
         command: |
           mkdir -vp reports/junit
-          yarn --silent test --reporter xunit > reports/junit/test-results.xml
+          TEST_REPORT_PATH=reports/junit/test-results.xml yarn --silent test
     - store_test_results:
         path: reports/junit
   build:
