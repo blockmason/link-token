@@ -1,7 +1,7 @@
 pragma solidity 0.5.3;
 
 contract BLINKToken {
-  uint256 public constant decimals = 18;
+  uint8 public constant decimals = 18;
   string public constant name = "BLOCKMASON LINK TOKEN";
   string public constant symbol = "BLINK";
 
