@@ -12,13 +12,16 @@ workflows:
     - build:
         requires:
         - install
-    - style:
-        requires:
-        - install
     - install:
         requires:
         - initialize
     - initialize
+    - javascript-style:
+        requires:
+        - install
+    - solidity-style:
+        requires:
+        - install
     - test:
         requires:
         - install
@@ -52,7 +55,7 @@ jobs:
         root: /docker
         paths:
         - project/node_modules
-  style:
+  javascript-style:
     <<: *defaults
     steps:
     - attach_workspace:
@@ -61,7 +64,19 @@ jobs:
         name: Checking code style
         command: |
           mkdir -vp reports
-          yarn --silent lint --format junit --output-file reports/eslint.xml
+          yarn --silent lint:javascript --format junit --output-file reports/eslint.xml
+    - store_test_results:
+        path: reports
+  solidity-style:
+    <<: *defaults
+    steps:
+    - attach_workspace:
+        at: /docker
+    - run:
+        name: Checking code style
+        command: |
+          mkdir -vp reports
+          yarn --silent lint:solidity --formatter junit | tee reports/solhint.xml
     - store_test_results:
         path: reports
   test:

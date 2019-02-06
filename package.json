@@ -11,7 +11,9 @@
   "scripts": {
     "build": "truffle compile",
     "coverage": "nyc report",
-    "lint": "eslint test",
+    "lint": "yarn lint:javascript && yarn lint:solidity",
+    "lint:javascript": "eslint test",
+    "lint:solidity": "solhint contracts/**/*.sol",
     "start": "ganache-cli --accounts 2 --port 8545 --host 127.0.0.1",
     "test": "nyc --silent --check-coverage --lines 100 --per-file truffle test"
   },
@@ -26,6 +28,7 @@
     "mocha": "5.2.0",
     "mocha-junit-reporter": "1.18.0",
     "nyc": "13.1.0",
+    "solhint": "1.5.1",
     "truffle": "5.0.3"
   }
 }
