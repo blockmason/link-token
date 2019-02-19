@@ -6,7 +6,7 @@ module.exports = {
           enabled: true
         }
       },
-      version: '0.5.3'
+      version: '0.5.4'
     }
   },
   mocha: process.env.CI ? {
