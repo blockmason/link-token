@@ -10,7 +10,7 @@ module.exports = {
     }
   },
   mocha: process.env.CI ? {
-    reporter: 'mocha-junit-reporter',
+    reporter: 'xunit',
     reporterOptions: {
       mochaFile: process.env.TEST_REPORT_PATH
     }
