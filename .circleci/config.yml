@@ -3,7 +3,7 @@ version: 2
 defaults: &defaults
   working_directory: "/docker/project"
   docker:
-  - image: blockmason/nodejs:11.8.0
+  - image: blockmason/nodejs:12.4.0
 
 workflows:
   version: 2
@@ -82,7 +82,7 @@ jobs:
   test:
     working_directory: "/docker/project"
     docker:
-    - image: blockmason/nodejs:11.8.0
+    - image: blockmason/nodejs:12.4.0
     - image: blockmason/ganache:6.3.0
     steps:
     - attach_workspace:
