@@ -18,16 +18,16 @@
     "test": "nyc --silent --check-coverage --lines 100 --per-file truffle test"
   },
   "devDependencies": {
-    "babel-eslint": "10.0.1",
-    "bn.js": "4.11.8",
+    "babel-eslint": "10.0.2",
+    "bn.js": "5.0.0",
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
-    "eslint": "5.16.0",
+    "eslint": "6.0.1",
     "eslint-plugin-ante": "1.0.2",
-    "ganache-cli": "6.4.3",
+    "ganache-cli": "6.4.5",
     "mocha": "6.1.4",
     "nyc": "14.1.1",
     "solhint": "2.1.0",
-    "truffle": "5.0.21"
+    "truffle": "5.0.27"
   }
 }
